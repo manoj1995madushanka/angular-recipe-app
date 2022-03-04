@@ -1,19 +1,26 @@
 <div class="row">
   <div class="col-xs-12">
-    <form>
+    <!--<form>-->
+    <form (ngSubmit)="onAddItem(form)" #form="ngForm">
       <div class="row">
         <div class="col-sm-5 form-group">
           <label for="name">Name</label>
-          <input id="name" type="text" class="form-control" #nameInput>
+          <!-- do not need for template driven form-->
+          <!--<input id="name" type="text" class="form-control" #nameInput>-->
+          <input id="name" type="text" class="form-control" name="name" ngForm>
         </div>
         <div class="col-sm-2 form-group">
           <label for="amount">Amount</label>
-          <input id="amount" type="number" class="form-control" #amountInput>
+          <!-- do not need for template driven form-->
+          <!--<input id="amount" type="number" class="form-control" #amountInput>-->
+          <input id="amount" type="number" class="form-control" name="amount" ngForm>
         </div>
       </div>
       <div class="row">
         <div class="col-xs-12">
-          <button type="submit" class="btn btn-success" (click)="onAddItem()">Add</button>
+          <!-- do not need for template driven form-->
+          <!--<button type="submit" class="btn btn-success" (click)="onAddItem()">Add</button>-->
+          <button type="submit" class="btn btn-success">Add</button>
           <button type="button" class="btn btn-danger">Delete</button>
           <button type="button" class="btn btn-primary">Clear</button>
         </div>
