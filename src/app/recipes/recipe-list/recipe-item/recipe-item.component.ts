@@ -10,6 +10,7 @@ import {RecipeService} from "../../recipe.service";
 export class RecipeItemComponent implements OnInit {
 
   @Input() recipe: Recipe;
+  @Input() index:number;
 
   //@Output() recipeSelected=new EventEmitter<void>();
 
@@ -19,6 +20,7 @@ export class RecipeItemComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  // we don't need this method because we add rout parameter to load child
   onSelected() {
     //this.recipeSelected.emit();
     this.recipeService.recipeSelected.emit(this.recipe);

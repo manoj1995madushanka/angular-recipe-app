@@ -1,6 +1,13 @@
+<!--<a
+  style="cursor: pointer"
+  class="list-group-item clearfix" (click)="onSelected()">-->
+
+
+<!--here we are using [routerLink] with property binding[] syntax because we have dynamic fields in URl-->
 <a
   style="cursor: pointer"
-  class="list-group-item clearfix" (click)="onSelected()">
+  [routerLink]="[index]"
+  class="list-group-item clearfix">
   <div class="pull-left">
     <h4 class="list-group-item-heading">{{recipe.name}}</h4>
     <p class="list-group-item-text">{{recipe.description}}</p>
