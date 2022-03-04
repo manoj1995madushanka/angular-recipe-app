@@ -20,6 +20,7 @@ export class RecipeDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    // we do not need to unsubscribe this subscription because this is built in subscription of angular
     this.route.params.subscribe((params: Params) => {
       this.id = +params['id'];
       this.recipe = this.recipeService.getRecipeById(this.id);
