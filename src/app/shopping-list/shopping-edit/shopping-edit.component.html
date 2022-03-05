@@ -7,12 +7,12 @@
           <label for="name">Name</label>
           <!-- do not need for template driven form-->
           <!--<input id="name" type="text" class="form-control" #nameInput>-->
-         <input id="name" type="text" class="form-control" name="name" ngModel required>
+          <input id="name" type="text" class="form-control" name="name" ngModel required>
         </div>
         <div class="col-sm-2 form-group">
           <label for="amount">Amount</label>
           <!-- do not need for template driven form-->
-         <!-- <input id="amount" type="number" class="form-control" #amountInput>-->
+          <!-- <input id="amount" type="number" class="form-control" #amountInput>-->
           <input id="amount" type="number" class="form-control" name="amount"
                  ngModel required [pattern]="'^[1-9]+[0-9]*$'">
         </div>
@@ -21,7 +21,8 @@
         <div class="col-xs-12">
           <!-- do not need for template driven form-->
           <!--<button type="submit" class="btn btn-success" (click)="onAddItem()">Add</button>-->
-          <button type="submit" class="btn btn-success" [disabled]="!shpForm.valid">Add</button>
+          <button type="submit" class="btn btn-success"
+                  [disabled]="!shpForm.valid">{{editMode ? 'Update' : 'Add'}}</button>
           <button type="button" class="btn btn-danger">Delete</button>
           <button type="button" class="btn btn-primary">Clear</button>
         </div>

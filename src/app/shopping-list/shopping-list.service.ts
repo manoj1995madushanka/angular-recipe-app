@@ -9,19 +9,21 @@ export class ShoppingListService {
 
   //ingredientChanged = new EventEmitter<Ingredient[]>();
   ingredientChanged = new Subject<Ingredient[]>();
+  startedEditing = new Subject<number>();
 
-  private ingredients : Ingredient[]= [
-    new Ingredient('apple',3),
-    new Ingredient('grapes',2),
+  private ingredients: Ingredient[] = [
+    new Ingredient('apple', 3),
+    new Ingredient('grapes', 2),
   ];
 
-  constructor() { }
+  constructor() {
+  }
 
-  getIngredients(){
+  getIngredients() {
     return this.ingredients.slice();
   }
 
-  addIngredients(ingredient:Ingredient){
+  addIngredients(ingredient: Ingredient) {
     this.ingredients.push(ingredient);
     //this.ingredientChanged.emit(this.ingredients.slice());
 
@@ -33,6 +35,15 @@ export class ShoppingListService {
     this.ingredients.push(...ingredients);
     //this.ingredientChanged.emit(this.ingredients.slice());
 
+    this.ingredientChanged.next(this.ingredients.slice());
+  }
+
+  getIngredientByIndex(index: number) {
+    return this.ingredients[index];
+  }
+
+  updateIngredient(index: number, ingredient: Ingredient) {
+    this.ingredients[index] = ingredient;
     this.ingredientChanged.next(this.ingredients.slice());
   }
 }
