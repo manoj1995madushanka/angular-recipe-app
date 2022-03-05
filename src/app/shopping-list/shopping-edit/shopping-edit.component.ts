@@ -23,14 +23,15 @@ export class ShoppingEditComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onAddItem(form: NgForm) {
+  onAddItem(shpForm:NgForm) {
 
     // do not need below lines because we using template driven now
     /*const name = this.nameInputRef.nativeElement.value;
     const amount = this.amountInputRef.nativeElement.value;*/
 
-    const data = form.value;
+    const data = shpForm.value;
     const ingredient = new Ingredient(data.name, data.amount);
+
     //this.ingredientAdded.emit(ingredient);
 
     this.shoppingLisService.addIngredients(ingredient);
