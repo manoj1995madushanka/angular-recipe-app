@@ -15,6 +15,7 @@ import { DropdownDirective } from './shared/dropdown.directive';
 import {ShoppingListService} from "./shopping-list/shopping-list.service";
 import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   /* added shopping list here because we access this service outside shopping component and
   * we can maintain singleton instance when it added here*/
