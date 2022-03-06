@@ -9,7 +9,7 @@ import {Subject} from "rxjs";
 })
 export class RecipeService {
 
-  private recipes: Recipe[] = [
+  /*private recipes: Recipe[] = [
     new Recipe('Test Recipe 01', 'for test purpose 01',
       'https://upload.wikimedia.org/wikipedia/commons/3/39/Recipe.jpg', [
         new Ingredient('Meat', 1),
@@ -19,7 +19,9 @@ export class RecipeService {
       'https://upload.wikimedia.org/wikipedia/commons/3/39/Recipe.jpg', [
         new Ingredient('Cheese', 2)
       ])
-  ];
+  ];*/
+
+  private recipes: Recipe[] = [];
 
   recipeSelected = new EventEmitter<Recipe>();
   recipesChanged = new Subject<Recipe[]>();
@@ -56,6 +58,6 @@ export class RecipeService {
 
   setRecipes(recipes: Recipe[]) {
     this.recipes = recipes;
-    this.recipesChanged.next(this.recipes.slice())
+    this.recipesChanged.next(this.recipes.slice());
   }
 }
