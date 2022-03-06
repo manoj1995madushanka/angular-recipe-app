@@ -42,7 +42,7 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
     });
   }
 
-  onAddItem(shpForm: NgForm) {
+  onSubmit(shpForm: NgForm) {
 
     // do not need below lines because we using template driven now
     /*const name = this.nameInputRef.nativeElement.value;
@@ -54,13 +54,20 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
     //this.ingredientAdded.emit(ingredient);
 
     if (this.editMode) {
-      this.shoppingLisService.updateIngredient(this.editedNumberIndex, this.editingIngredient);
+      this.shoppingLisService.updateIngredient(this.editedNumberIndex, ingredient);
     } else {
       this.shoppingLisService.addIngredients(ingredient);
     }
+    shpForm.reset();
+    this.editMode = false;
   }
 
   ngOnDestroy(): void {
     this.shoppingSubscription.unsubscribe();
+  }
+
+  onClear() {
+    this.shpForm.reset();
+    this.editMode = false;
   }
 }

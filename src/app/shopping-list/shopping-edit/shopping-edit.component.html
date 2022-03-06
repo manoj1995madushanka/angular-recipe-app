@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-xs-12">
     <!--<form>-->
-    <form (ngSubmit)="onAddItem(shpForm)" #shpForm="ngForm">
+    <form (ngSubmit)="onSubmit(shpForm)" #shpForm="ngForm">
       <div class="row">
         <div class="col-sm-5 form-group">
           <label for="name">Name</label>
@@ -24,7 +24,7 @@
           <button type="submit" class="btn btn-success"
                   [disabled]="!shpForm.valid">{{editMode ? 'Update' : 'Add'}}</button>
           <button type="button" class="btn btn-danger">Delete</button>
-          <button type="button" class="btn btn-primary">Clear</button>
+          <button type="button" class="btn btn-primary" (click)="onClear()">Clear</button>
         </div>
       </div>
     </form>
