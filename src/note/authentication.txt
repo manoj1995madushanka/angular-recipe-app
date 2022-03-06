@@ -1,0 +1,3 @@
+sessions can not use because REST apis are stateless
+encoded json token is use
+only server can validate json tokens
