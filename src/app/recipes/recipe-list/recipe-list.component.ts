@@ -9,10 +9,10 @@ import {Subscription} from "rxjs";
   templateUrl: './recipe-list.component.html',
   styleUrls: ['./recipe-list.component.css']
 })
-export class RecipeListComponent implements OnInit,OnDestroy {
+export class RecipeListComponent implements OnInit, OnDestroy {
 
   recipes: Recipe[];
-  recipesChangeSubscription = new Subscription();
+  recipesChangeSubscription: Subscription;
 
   //@Output() recipeWasSelected = new EventEmitter<Recipe>();
 
@@ -22,7 +22,7 @@ export class RecipeListComponent implements OnInit,OnDestroy {
   ngOnInit(): void {
     this.recipes = this.recipeService.getRecipes();
 
-    this.recipeService.recipesChanged.subscribe((recipes:Recipe[])=>{
+    this.recipeService.recipesChanged.subscribe((recipes: Recipe[]) => {
       this.recipes = recipes;
     })
   }
